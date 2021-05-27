@@ -1,11 +1,10 @@
 package kodlamaio.hrms.entities.concretes;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -21,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class JobPosition {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	@GeneratedValue
 
 	@Column(name = "id")
 	private int id;
@@ -29,8 +28,8 @@ public class JobPosition {
 	@Column(name = "job_title")
 	private String jobTitle;
 	
-    @Column(name="created_at", columnDefinition = "Date default CURRENT_DATE")
-    private LocalDate createdAt = LocalDate.now();
+    @Column(name="created_at")
+    private Date createdAt;
 
     @Column(name="is_verified", columnDefinition = "boolean default true")
     private boolean isVerified = true;
