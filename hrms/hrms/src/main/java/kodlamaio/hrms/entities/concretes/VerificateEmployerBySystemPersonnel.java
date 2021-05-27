@@ -8,27 +8,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "job_positions")
+@Table(name = "employers_verification_admins")
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+public class VerificateEmployerBySystemPersonnel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private int id;
 
-public class JobPosition {
+    @Column(name="employer_id")
+    private int employerId;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+    @Column(name="admin_id")
+    private int adminlId;
 
-	@Column(name = "id")
-	private int id;
-
-	@Column(name = "job_title")
-	private String jobTitle;
-	
     @Column(name="created_at", columnDefinition = "Date default CURRENT_DATE")
     private LocalDate createdAt = LocalDate.now();
 
@@ -37,5 +38,4 @@ public class JobPosition {
 
     @Column(name="is_deleted", columnDefinition = "boolean default true")
     private boolean isDeleted=false;
-
 }
